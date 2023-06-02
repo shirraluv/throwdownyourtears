@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -17,58 +16,37 @@ using System.Windows.Shapes;
 namespace throwdownyourtears.product
 {
     /// <summary>
-    /// Логика взаимодействия для addproduct.xaml
+    /// Логика взаимодействия для addprovider.xaml
     /// </summary>
-    public partial class addproduct : Page
+    public partial class addprovider : Page
     {
-        public Product Edit { get; set; }
-        public List<Shop> Shops { get; set; }
-
-        public List<Provider> Providers { get; set; }
-        public Provider SelectedProvider { get; set; }
-        public List<Product> Products { get; set; }
-
-        public addproduct()
+        public List<Provider> Providers = new List<Provider>();
+        public Provider Edit { get; set; }
+        public addprovider()
         {
             InitializeComponent();
-            Edit = new Product();
-            Providers = Database.GetInstance().GetProvider();
-            Products = Database.GetInstance().GetProduct();
-            Shops = Database.GetInstance().GetShop();
+            Edit = new Provider();
             DataContext = this;
         }
-
-        public addproduct(Product edit)
+        public addprovider(Provider edit)
         {
             InitializeComponent();
             Edit = edit;
-            Providers = Database.GetInstance().GetProvider();
-            Products = Database.GetInstance().GetProduct();
-            Shops = Database.GetInstance().GetShop();
             DataContext = this;
         }
 
-
         private void Save(object sender, RoutedEventArgs e)
         {
-
-
             var db = Database.GetInstance();
-            int id = 0;
             if (Edit.Id == 0)
             {
                 db.AddData(Edit);
-                id = Edit.Id;
             }
             else
             {
                 db.EditData(Edit);
             }
-
             Navigation.GetInstance().CurrentPage = new list.listproduct();
-
         }
-
     }
 }
-

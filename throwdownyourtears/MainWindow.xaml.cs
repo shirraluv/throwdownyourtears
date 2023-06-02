@@ -29,7 +29,7 @@ namespace throwdownyourtears
             DataContext = Navigation.GetInstance();
             InitializeComponent();
 
-            //DB.GetInstance().TestConnection();
+            //Database.GetInstance().TestConnection();
         }
 
         private void clickOpenlistproduct(object sender, RoutedEventArgs e)

@@ -5,17 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:throwdownyourtears"
         mc:Ignorable="d"
-        Title="Главное окно" Height="450" Width="800">
+        Title="Главное окно" Height="450" Width="800" Background="{x:Null}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Frame Background="LightSteelBlue" Grid.Row="1" Content="{Binding CurrentPage}" NavigationUIVisibility="Hidden"/>
-        <Button FontFamily="Segoe UI Black" FontWeight="UltraBlack" FontStyle="Normal" FontSize="16"  FlowDirection="LeftToRight" Background="LightPink" Content="Товары" Margin="10,75,601, 275" Grid.Row="1" Click ="clickOpenlistproduct"/>
-        <Button FontFamily="Segoe UI Black" FontWeight="UltraBlack" FontStyle="Normal" FontSize="16"  FlowDirection="LeftToRight" Background="LightPink" Content="Продажа" Margin="10,175,601,175" Grid.Row="1" Click ="clickOpenlistsales"/>
-        <Button FontFamily="Segoe UI Black" FontWeight="UltraBlack" FontStyle="Normal" FontSize="16"  FlowDirection="LeftToRight" Background="LightPink" Content="Отчет" Margin="10,275,601, 75" Grid.Row="1" Click ="clickOpenlistreport"/>
-       
+
+        <Frame Grid.Row="1" Content="{Binding CurrentPage}" NavigationUIVisibility="Hidden">
+
+            <Frame.Background>
+
+                <LinearGradientBrush EndPoint="1,1.3" StartPoint="0,1.5">
+                    <GradientStop Color="#FF000000" Offset="0"/>
+                    <GradientStop Color="#7A611717" Offset="1"/>
+
+                </LinearGradientBrush>
+            </Frame.Background>
+        </Frame>
+
+        <Button FontFamily="Segoe UI Black" FontWeight="UltraBlack" FontStyle="Normal" FontSize="16"  FlowDirection="LeftToRight"  Content="Товары" Margin="10,70,601,280" Grid.Row="1" Click ="clickOpenlistproduct" BorderThickness="1,1,1,1" SnapsToDevicePixels="True">
+            <Button.Background>
+                <SolidColorBrush Color="White" Opacity="0.355"/>
+            </Button.Background>
+        </Button>
+            <Button FontFamily="Segoe UI Black" FontWeight="UltraBlack" FontStyle="Normal" FontSize="16"  FlowDirection="LeftToRight"  Content="Продажа" Margin="10,175,601,175" Grid.Row="1" Click ="clickOpenlistsales" BorderThickness="1,1,1,1" SnapsToDevicePixels="True">
+            <Button.Background>
+                <SolidColorBrush Color="White" Opacity="0.355"/>
+            </Button.Background>
+        </Button>
+            <Button  FontFamily="Segoe UI Black" FontWeight="UltraBlack" FontStyle="Normal" FontSize="16"  FlowDirection="LeftToRight" Content="Отчет" Margin="10,280,601,70" Grid.Row="1" Click ="clickOpenlistreport" BorderThickness="1,1,1,1" SnapsToDevicePixels="True">
+            <Button.Background>
+                <SolidColorBrush Color="White" Opacity="0.355"/>
+            </Button.Background>
+        </Button>
+
     </Grid>
 </Window>
 

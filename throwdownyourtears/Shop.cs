@@ -9,7 +9,6 @@ public partial class Shop
 
     public string? Name { get; set; }
 
-    public virtual Quantityofsale Id1 { get; set; } = null!;
-
-    public virtual Product IdNavigation { get; set; } = null!;
+    public virtual Product? Product { get; set; }
+    public virtual ICollection<Productshop> Productshops { get; } = new List<Productshop>();
 }

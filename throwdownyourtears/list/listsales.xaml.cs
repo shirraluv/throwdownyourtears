@@ -22,13 +22,38 @@ namespace throwdownyourtears.list
     public partial class listsales : Page
 #pragma warning restore CS8981 // Имя типа "listsales" содержит только строчные символы ASCII. Такие имена могут резервироваться для языка.
     {
+        public List<Product> Data { get; set; }
+        public Product SelectedData { get; set; }
+
         public listsales()
         {
             InitializeComponent();
+            Data = Database.GetInstance().GetProduct();
+            DataContext = this;
         }
 
-        private void sale(object sender, RoutedEventArgs e)
+        private void opensale(object sender, RoutedEventArgs e)
         {
+            if (SelectedData != null)
+            {
+                if (SelectedData.Quantity > 0)
+                {
+                    var db = Database.GetInstance();
+                    SelectedData.Productgain++;
+                    SelectedData.Productsales++;
+                    SelectedData.Quantity--;
+                    db.AddData2(SelectedData);
+                    xyi2.ItemsSource = Database.GetInstance().GetProduct();
+                }
+                else
+                {
+                    MessageBox.Show("Товар закончился");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите товар");
+            }
 
         }
     }

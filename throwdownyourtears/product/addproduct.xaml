@@ -7,7 +7,12 @@
       mc:Ignorable="d" 
       d:DesignHeight="400" d:DesignWidth="800"
       Title="Добавить продукт">
+
     <StackPanel>
+        <TextBlock Background="LightGreen" Text="Магазин" Width="319"/>
+        <ListBox Background="LightSkyBlue" x:Name="shops" ItemsSource="{Binding Shops}"
+                 SelectionMode="Single"
+                  DisplayMemberPath="Name" Height="20" Width="319"/>
         <TextBlock Background="LightGreen" Text="Название" Width="319"/>
         <TextBox Background="LightSkyBlue" Text="{Binding Edit.Name}" Width="319"/>
         <TextBlock Background="LightGreen" Text="Цена" Width="319"/>
@@ -18,11 +23,9 @@
         <TextBox Background="LightSkyBlue" Text="{Binding Edit.Quantity}" Width="319"/>
         <TextBlock Background="LightGreen" Text="Цена закупки" Width="319"/>
         <TextBox Background="LightSkyBlue" Text="{Binding Edit.PurchasePrice}" Width="319"/>
-        <TextBlock Background="LightGreen" Text="Поставщик" Width="319"/>
-        <TextBox Background="LightSkyBlue" Text="{Binding Edit.Name1}" Width="319"/>
-        <TextBlock Background="LightGreen" Text="@telegramid Поставщика" Width="319"/>
-        <TextBox Background="LightSkyBlue" Text="{Binding Edit.Telegramid}" Width="319"/>
+        
         <Button FontFamily="Segoe UI Black" FontWeight="UltraBlack" FontStyle="Normal" FontSize="16"  FlowDirection="LeftToRight" Background="LightPink" Content="Сохранить" Click ="Save" Width="146"/>
 
     </StackPanel>
+
 </Page>
